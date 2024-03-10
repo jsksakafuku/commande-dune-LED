@@ -1,0 +1,33 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control LED</title>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>LED Control</h1>
+  <button onclick="turnOn()">Turn LED ON</button>
+  <button onclick="turnOff()">Turn LED OFF</button>
+  
+  <script>
+    function turnOn() {
+      fetch('/ledon')
+        .then(response => console.log('LED turned ON'))
+        .catch(error => console.error('Error turning LED ON:', error));
+    }
+
+    function turnOff() {
+      fetch('/ledoff')
+        .then(response => console.log('LED turned OFF'))
+        .catch(error => console.error('Error turning LED OFF:', error));
+    }
+  </script>
+</body>
+</html>
